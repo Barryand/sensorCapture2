@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 自动扫描该包下的 Bean 并装载 -->
+    <context:component-scan base-package="com.barry.sensorCapture"/>
+    <!--<context:annotation-config/>-->
+
+    <bean id="sensorService" class="com.barry.sensorCapture.Service.SocketServerServiceImpl"
+           destroy-method="stopService"
+          p:port="8888" p:IPAdress="192.168.128.101">
+    </bean>
+</beans>
